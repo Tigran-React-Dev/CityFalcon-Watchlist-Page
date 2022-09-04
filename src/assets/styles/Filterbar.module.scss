@@ -30,13 +30,32 @@
              .selectOpen{
                 position:absolute;
                 width: get-vw(172px,1366);
-                height: get-vw(200px,1366);
+                height: get-vw(170px,1366);
                 top:get-vw(45px,1360);
                 background-color: #fff;
                 display: flex;
                 flex-direction: column;
                 .checketcoll{
                     display: flex;
+                    margin-top: get-vw(5px,1366);
+                    margin-left: get-vw(10px,1366);
+                     input{
+                        width: get-vw(13px,1366);
+                        height: get-vw(13px,1366);
+                        margin-top: 5px;
+                     }
+                     p{
+                     font-family: Lato;
+                    font-size: get-vw(13px, 1366);
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.6;
+                    letter-spacing: 0.5px;
+                    color: #666;
+                    margin-top: get-vw(2px,1366);
+                    margin-left: get-vw(20px,1366 );
+                     }
                 }
              } 
 

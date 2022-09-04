@@ -7,10 +7,10 @@ const GlobalContext =  createContext({});
 const GlobalProvider = ({children})=>{
 
     const [initialTopicData,setInitialTopicData]=useState({
-        autorefresh:[{id:1,time:"0.5",title:"30 sec",selected:true},
-                     {id:2,time:"1",title:"1 min",selected:false},
-                     {id:3,time:"2",title:"2 min ",selected:false},
-                     {id:4,time:"10",title:"10 min ",selected:false},
+        autorefresh:[{id:1,time:"30",title:"30 sec",selected:true},
+                     {id:2,time:"100",title:"1 min",selected:false},
+                     {id:3,time:"200",title:"2 min ",selected:false},
+                     {id:4,time:"1000",title:"10 min ",selected:false},
                     ],
         orderby:[
             {id:1,type:"top",selected:true},
@@ -113,7 +113,7 @@ const GlobalProvider = ({children})=>{
                     }
                  })
             }
-       console.log(newLanguage,"newLanguage");
+       
 
             setInitialTopicData({
                 ...initialTopicData,
