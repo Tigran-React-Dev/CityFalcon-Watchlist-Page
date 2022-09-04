@@ -19,7 +19,8 @@ const  Navbar = ()=>{
                  <button 
                         className={css.refreshbutton}
                         onClick={()=>{
-                            setShowfilterbar(false)
+                            setShowfilterbar(false);
+                            window.location.reload();
                         }}      
                  >
                             Refresh
@@ -29,8 +30,7 @@ const  Navbar = ()=>{
                         className={css.filterbutton}
                         onClick={()=>ShowFilter()}
                         >
-                            
-                            Filter
+                           Filter
                   </button>      
             </div>
             {showFilterbar ? <FilterBar/> : null}

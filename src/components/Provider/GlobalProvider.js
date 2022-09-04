@@ -5,7 +5,8 @@ const GlobalContext =  createContext({});
 
 
 const GlobalProvider = ({children})=>{
-    const [stories, setStories] = useState([])
+    const [stories, setStories] = useState([]);
+    const [limit, setLimit] = useState(10)
     const [initialTopicData,setInitialTopicData]=useState({
         autorefresh:[{id:1,time:"30",title:"30 sec",selected:true},
                      {id:2,time:"100",title:"1 min",selected:false},
@@ -133,8 +134,8 @@ const GlobalProvider = ({children})=>{
 
     const CustomRefresh = async ()=>{
         const response = await axios.get(`https://cf-endpoint-proxy.herokuapp.com/webapi/v1/stories?limit=${10}&languages=${query.language}&order=${query.orderby}&page_token=98807224-712f-4658-9d31-98f77773333`)
-        console.log(response,"resss");
-        setStories([...response.data.stories])
+         setStories([...response.data.stories]);
+         setLimit(10)
     }
 
 
@@ -149,7 +150,9 @@ const GlobalProvider = ({children})=>{
         setQuery,
         stories, 
         setStories,
-        CustomRefresh
+        CustomRefresh,
+        limit,
+         setLimit
     }}>
      {children}
     </GlobalContext.Provider>

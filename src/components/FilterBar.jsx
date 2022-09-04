@@ -79,7 +79,10 @@ const FilterBar =()=>{
 
                 </div>}
              </div>
-             <button className={css.refreshtopic} onClick={CustomRefresh}>Refresh</button>
+             <button className={css.refreshtopic} onClick={()=>{
+                CustomRefresh();
+                setShowAndHideSelect({1:false,2:false,3:false})}}>
+                    Refresh</button>
              </div>
 
         </div>

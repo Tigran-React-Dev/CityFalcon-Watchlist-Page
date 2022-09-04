@@ -7,13 +7,84 @@
 
   .storiscontent{
     width: get-vw(1028px,1366);
-    min-height: get-vw(100px,1366);
+    min-height: get-vw(75px,1366);
     display: flex;
     background-color: #f7f7f7;
     flex-direction: column;
     .itemstori{
-        width: get-vw(1028px,1366);
-        min-height: get-vw(100px,1366);
-        border: 1px solid red;
+        width: get-vw(928px,1366 );
+        height: get-vw(75px,1366 );
+        border-radius: get-vw(3px,1366);
+        border: solid get-vw(1px, 1366) var(--white);
+        background-color: #fff;
+        display: flex;
+        margin-top: get-vw(7px,1366);
+        margin-left: get-vw(70px,1366 );
+          img{
+            width: get-vw(70px,1366 );
+            height: get-vw(75px, 1366);
+            border-radius: get-vw(3px,1366);
+          }
+          .storyinfo{
+            width: get-vw(858px,1366 );
+            height: get-vw(75px, 1366);
+            display: flex;
+            .titleandDescription{
+                width: get-vw(750px,1366);
+                height: get-vw(75px, 1366);
+                display: flex;
+                flex-direction: column;
+                h3{
+                    font-family: Lato;
+                    font-size: get-vw(16px,1366 );
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.5;
+                    letter-spacing: normal;
+                    color: #000;
+                    margin-top: get-vw(12px,1366);
+                    margin-left: get-vw(20px,1366 );
+                }
+                p{
+                    font-family: Lato;
+                    font-size: get-vw(12px, 1366);
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    width: get-vw(700px,1366);
+                    color: #666;
+                    margin-top: get-vw(5px,1366);
+                    margin-left: get-vw(20px,1366 );
+                }
+            }
+            .points{
+                width: get-vw(40px, 1366);
+                height: get-vw(30px,1366 );
+                border-radius: get-vw(5px,1366 );
+                margin-left: get-vw(10px,1366 );
+                margin-top: get-vw(18px,1366);
+                background-color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+          }
+          
     }
+  }
+  .loading{
+         font-family: Lato;
+         font-size: get-vw(20px, 1366);
+         font-weight: normal;
+         font-stretch: normal;
+         font-style: normal;
+         line-height: 1.6;
+         letter-spacing: 0.5px;
+         color: #666;
+         margin-top: get-vw(10px,1366);
+         padding-bottom: get-vw(20px,1366 );      
+         text-align: center; 
   }

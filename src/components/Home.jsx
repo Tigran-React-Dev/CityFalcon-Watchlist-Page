@@ -14,13 +14,15 @@ const HomePage =()=>{
            query,
            setQuery,
            stories, 
-           setStories}=useGlobalProvider();
+           setStories,
+           limit, 
+           setLimit}=useGlobalProvider();
     const {autorefresh,orderby,language}=initialTopicData;
    
 
     //states infinity scroling
     const [noGettingStories, setGettingStories] = useState(true)
-    const [limit, setLimit] = useState(10)
+    
 
     
 
@@ -80,25 +82,39 @@ const HomePage =()=>{
             if(entries[0].isIntersecting && limit < 100){
                 setLimit(limit + 10)
                 console.log(limit)
-                setGettingStories(true)
+                
             }
         }
         observer.current = new IntersectionObserver(callback)
         observer.current.observe(lastElement.current)
-        
+        setGettingStories(true)
     }, [noGettingStories])
 
     return (
           <div className={css.storiscontent}>
-            {stories?.map(p => {
-                        return <li key={p.id} className={css.itemstori}>
-                            {p.title}
-                        </li>
+            {stories?.map(story => {
+                        return <div key={story.id} className={css.itemstori}>
+                            <img src={story.domain_cached_large_logo_url} alt={story.title} />
+                            <div className={css.storyinfo}>
+                               <div className={css.titleandDescription}>
+                                    <h3>{story.title}</h3>
+                                    <p>{story.description}</p>
+                               </div>
+                               <div className={css.points} style={{
+                                 border:`0.2vw solid ${story.score <20 ? "#ef6c00" : 
+                                 story.score >20 && story.score <45 ? "#ffb300"  :  "#4eb495"}`
+                               }}>
+                                   <p style={{
+                                     color:story.score <20 ? "#ef6c00" : 
+                                     story.score >20 && story.score <45 ? "#ffb300"  :  "#4eb495"
+                                   }}>{story.score}%</p>
+                               </div>
+                            </div>
+                        </div>
                     })
            }
                 <div ref={lastElement}>
-                    hasisran
-                    {noGettingStories && "Loading..."}
+                    <p className={css.loading}>{noGettingStories && "Loading..."}</p>
                 </div>
            
          </div>
