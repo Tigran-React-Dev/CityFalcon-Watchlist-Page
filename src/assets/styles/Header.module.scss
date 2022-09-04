@@ -1,0 +1,29 @@
+@function get-vw($size, $width){
+    $vw-context: $width * 0.01 * 1px;
+    @return $size / $vw-context * 1vw;
+    @return $size;
+  }
+
+
+.header{
+   width: get-vw(1366px,1366);
+   height: get-vw(50px,1366);
+   background-color: #fff;
+   display: flex;
+   justify-content: space-between;
+   .logo{
+    width: get-vw(90px,1366);
+    height: get-vw(43px, 1366);
+    object-fit: contain;
+    margin-left: get-vw(20px,1366);
+    margin-top: get-vw(4px,1366);
+    cursor: pointer;
+   }
+   .avatar{
+    width: get-vw(35px,1366);
+    height: get-vw(35px,1366);
+    cursor: pointer;
+    margin-top: get-vw(7px,1366);
+    margin-right: get-vw(35px,1366 );
+   }
+}
