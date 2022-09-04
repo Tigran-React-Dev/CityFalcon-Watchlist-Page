@@ -1,12 +1,12 @@
 import React, { useCallback, useState } from "react";
 import css from "../assets/styles/Navbar.module.scss";
-
+import FilterBar from "../components/FilterBar"
 
 
 const  Navbar = ()=>{
 
     const [showFilterbar,setShowfilterbar]=useState(false);
-
+    
     const ShowFilter =useCallback(()=>{
         setShowfilterbar(!showFilterbar)
     },[showFilterbar])
@@ -33,6 +33,7 @@ const  Navbar = ()=>{
                             Filter
                   </button>      
             </div>
+            {showFilterbar ? <FilterBar/> : null}
         </div>
     )
 }

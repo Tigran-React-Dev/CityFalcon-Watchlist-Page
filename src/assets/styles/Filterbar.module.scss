@@ -1,0 +1,49 @@
+@function get-vw($size, $width){
+    $vw-context: $width * 0.01 * 1px;
+    @return $size / $vw-context * 1vw;
+    @return $size;
+  }
+
+
+.filterbar{
+   width: get-vw(751px,1366);
+   height: get-vw(80px,1366);
+   margin-top: get-vw(14px,1366);
+   margin-left: get-vw(70px,1366);
+   background-color: #eee;
+   display: flex;
+    .selectcontainer{
+        width: get-vw(703px,1366);
+        height: get-vw(40px,1366);
+        display: flex;
+        justify-content: space-between;
+        margin-left: get-vw(24px,1366);
+        margin-top: get-vw(20px,1366);
+        border: 1px solid red($color: #000000);
+        .autorefreshtopic,.orderbytopic,.languagetopic{
+            width: get-vw(172px,1366);
+            height: get-vw(40px,1366);
+            background-color: #fff;
+            display: flex;
+            position: relative;
+           }
+           .refreshtopic{
+            width: get-vw(172px,1366);
+            height: get-vw(40px,1366);
+            border-radius: 3px;
+            background-color: #3971c1;
+            font-family: Lato;
+            font-size: get-vw(12px,1366);
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: normal;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+           }
+    }
+
+   
+}
