@@ -26,6 +26,61 @@
             background-color: #fff;
             display: flex;
             position: relative;
+            cursor: pointer;
+             .selectOpen{
+                position:absolute;
+                width: get-vw(172px,1366);
+                height: get-vw(200px,1366);
+                top:get-vw(45px,1360);
+                background-color: #fff;
+                display: flex;
+                flex-direction: column;
+                .checketcoll{
+                    display: flex;
+                }
+             } 
+
+
+
+
+
+            img{
+                width: get-vw(11px,1366);
+                height: get-vw(13px,1366);
+                object-fit: contain;
+                margin-top: get-vw(10px,1366 );
+            }
+            .selectetlable{
+                width: get-vw(151px,1366);
+                display: flex;
+                flex-direction: column;
+                h2{
+                    font-family: Lato;
+                    font-size: get-vw(13px,1366 );
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    color: #292929;
+                    margin-top: get-vw(5px,1366);
+                    margin-left: get-vw(10px,1366);
+
+                }
+                p{
+                    font-family: Lato;
+                    font-size: get-vw(10px, 1366);
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.6;
+                    letter-spacing: 0.5px;
+                    color: #666;
+                    text-transform: uppercase;
+                    margin-top: get-vw(2px,1366);
+                    margin-left: get-vw(10px,1366 );
+                }
+            }
            }
            .refreshtopic{
             width: get-vw(172px,1366);

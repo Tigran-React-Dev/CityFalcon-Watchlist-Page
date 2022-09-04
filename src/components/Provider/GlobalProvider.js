@@ -7,9 +7,10 @@ const GlobalContext =  createContext({});
 const GlobalProvider = ({children})=>{
 
     const [initialTopicData,setInitialTopicData]=useState({
-        autorefresh:[{id:1,time:"0.5",title:"30",selected:true},
-                     {id:2,time:"1",title:"1",selected:false},
-                     {id:3,time:"2",title:"2",selected:false}
+        autorefresh:[{id:1,time:"0.5",title:"30 sec",selected:true},
+                     {id:2,time:"1",title:"1 min",selected:false},
+                     {id:3,time:"2",title:"2 min ",selected:false},
+                     {id:4,time:"10",title:"10 min ",selected:false},
                     ],
         orderby:[
             {id:1,type:"top",selected:true},
@@ -18,11 +19,11 @@ const GlobalProvider = ({children})=>{
             {id:4,type:" read",selected:false},
         ],
         language:[
-            {id:0,language:"All Selected",selected:true},
-            {id:1,language:"en",selected:true},
-            {id:2,language:"de",selected:true},
-            {id:3,language:"zh",selected:true},
-            {id:4,language:"it",selected:true},
+            {id:0,key:"All Selected",selected:true},
+            {id:1,key:"en",selected:true},
+            {id:2,key:"de",selected:true},
+            {id:3,key:"zh",selected:true},
+            {id:4,key:"it",selected:true},
         ]           
        });
    
@@ -32,13 +33,109 @@ const GlobalProvider = ({children})=>{
         orderby:initialTopicData.orderby[0],
         language:initialTopicData.language[0]})
 
+    const ChangeCheckboxStatus =(id,checked,type)=>{
+        if(type=="autorefresh"){
+            let newautorefresh = initialTopicData.autorefresh.map((elem)=>{
+                if(elem.id==id){
+                    return {
+                        ...elem,
+                        selected:checked
+                    }
+                }else{
+                    return {
+                        ...elem,
+                    selected:false
+                    }
+                }
+            })
+            setInitialTopicData({
+                ...initialTopicData,
+                autorefresh:newautorefresh
+            })
+            setActiveSelected({
+                ...activeSelected,
+                autorefresh:newautorefresh.find((item)=>item.id==id)
+            })
+        }else if(type=="orderby"){
+            let newOrderBy = initialTopicData.orderby.map((elem)=>{
+                if(elem.id==id){
+                    return {
+                        ...elem,
+                        selected:checked
+                    }
+                }else{
+                    return {
+                        ...elem,
+                    selected:false
+                    }
+                }
+            })
+            setInitialTopicData({
+                ...initialTopicData,
+                orderby:newOrderBy
+            })
+            setActiveSelected({
+                ...activeSelected,
+                orderby:newOrderBy.find((item)=>item.id==id)
+            })
+        }else if(type=="language"){
+            let newLanguage=[];
+            if(id==0){
+                if(checked){
+                    newLanguage = initialTopicData.language.map((elem)=>{
+                        return {
+                                ...elem,
+                                selected:true
+                            }
+                     })
+                }else{
+                    newLanguage = initialTopicData.language.map((elem)=>{
+                        return {
+                                ...elem,
+                                selected:false
+                            }
+                     })
+                }
+            }else{
+                newLanguage = initialTopicData.language.map((elem)=>{
+                    if(elem.id==0){
+                        return {
+                            ...elem,
+                            selected:false
+                        } 
+                    }else if(elem.id==id){
+                        return {
+                            ...elem,
+                            selected:checked
+                        }
+                    }else{
+                        return elem
+                    }
+                 })
+            }
+       console.log(newLanguage,"newLanguage");
+
+            setInitialTopicData({
+                ...initialTopicData,
+                language:newLanguage
+            })
+            setActiveSelected({
+                ...activeSelected,
+                language:newLanguage.find((item)=>item.id==id)
+            })           
+        }
+       
+    }
+
+
 
 
 
     return <GlobalContext.Provider value={{
         initialTopicData,
         setInitialTopicData,
-        activeSelected
+        activeSelected,
+        ChangeCheckboxStatus
     }}>
      {children}
     </GlobalContext.Provider>
