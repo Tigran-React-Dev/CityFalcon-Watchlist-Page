@@ -1,0 +1,56 @@
+@function get-vw($size, $width){
+    $vw-context: $width * 0.01 * 1px;
+    @return $size / $vw-context * 1vw;
+    @return $size;
+  }
+
+
+
+  .navbar{
+    width: get-vw(1028px,1366);
+    height: get-vw(228px,1366);
+    display: flex;
+    background-color: #f7f7f7;
+    flex-direction: column;
+    h1{
+        font-family: Lato;
+        font-size: get-vw(24px,1366);
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #3971c1;
+        margin-top: get-vw(30px,1366);
+        margin-left: get-vw(70px,1366);
+
+    }
+    .controlebuttons{
+        width: get-vw(206px,1366);
+        height: get-vw(40px,1366);
+        margin-left: get-vw(70px,1366);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: get-vw(15px,1366);
+        .refreshbutton,.filterbutton{
+            width: get-vw(100px,1366);
+            height: get-vw(40px,1366);
+            font-family: Lato;
+            font-size: get-vw(13px,1366);
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #292929;
+            border: none;
+            cursor: pointer;
+            background-color: #fff;
+            &:hover{
+                background-color: #eee;
+            }
+        }
+    }
+
+  }
