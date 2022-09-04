@@ -5,4 +5,15 @@
   }
 
 
-  
+  .storiscontent{
+    width: get-vw(1028px,1366);
+    min-height: get-vw(100px,1366);
+    display: flex;
+    background-color: #f7f7f7;
+    flex-direction: column;
+    .itemstori{
+        width: get-vw(1028px,1366);
+        min-height: get-vw(100px,1366);
+        border: 1px solid red;
+    }
+  }

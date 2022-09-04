@@ -10,7 +10,7 @@ import chevronUp from "../assets/image/icon/chevron_up_icon.png"
 const FilterBar =()=>{
    
    
-   const {activeSelected,initialTopicData,ChangeCheckboxStatus}=useGlobalProvider();
+   const {activeSelected,initialTopicData,ChangeCheckboxStatus,CustomRefresh}=useGlobalProvider();
    const {autorefresh,orderby,language}=initialTopicData;
    const [showAndHideSelect,setShowAndHideSelect]=useState({1:false,2:false,3:false})
   
@@ -79,7 +79,7 @@ const FilterBar =()=>{
 
                 </div>}
              </div>
-             <button className={css.refreshtopic}>Refresh</button>
+             <button className={css.refreshtopic} onClick={CustomRefresh}>Refresh</button>
              </div>
 
         </div>
